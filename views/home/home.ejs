@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Linkedin</title>
+
+        <!-- <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" /> -->
+        <link rel="stylesheet" href="/css/login.css" />
+
+        <script type="" src="js/script.js"></script>
+        <script src="https://kit.fontawesome.com/3055f91a99.js"></script>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header id="main-header">
+            <div>
+                <div>
+                    <img
+                        id="header-logo"
+                        src="/images/linkedin.png"
+                        alt="LinkedIn"
+                    />
+                    <img
+                        id="header-picture-menu"
+                        src="/images/picture.jpeg"
+                        alt="Profile picture"
+                    />
+                    <span id="header-picture-menu-bars">
+                        <span class="fas fa-bars"></span>
+                    </span>
+
+                    <div>
+                        <input
+                            id="search"
+                            type="text"
+                            placeholder="       Search"
+                            onfocus="toggleSearchInput()"
+                            onblur="toggleSearchInput()"
+                        />
+                        <span id="search-icon" class="fas fa-search"></span>
+                        <span id="search-button" class="fas fa-search"></span>
+                    </div>
+                    <span class="fas fa-comments"></span>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <div id="home" class="selected">
+                                <span class="fas fa-home"></span>
+                                <span class="nav-item-text">Home</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fas fa-user-friends"></span>
+                                <span class="nav-item-text">My Network</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fas fa-suitcase"></span>
+                                <span class="nav-item-text">Jobs</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fas fa-envelope"></span>
+                                <span class="nav-item-text">Messaging</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fas fa-bell"></span>
+                                <span class="nav-item-text">Notifications</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="right-border">
+                                <img
+                                    src="assets/<%=user.picturePath%>"
+                                    alt="Profile picture"
+                                />
+
+                                <span class="nav-item-text">
+                                    Me<span class="fas fa-caret-down"> </span
+                                ></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fas fa-th"></span>
+
+                                <span class="nav-item-text"
+                                    >Work<span class="fas fa-caret-down"> </span
+                                ></span>
+                            </div>
+                        </li>
+                        <li id="premium">
+                            <!-- <div>
+                                <a href="#">Try Premium Free for 1 Month</a>
+                            </div> -->
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- LOADING PAGE -->
+        <div id="loading-page">
+            <div>
+                <img src="/images/linkedin.png" alt="" />
+                <div id="dot-loader">
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTAINER -->
+        <div class="container">
+            <!-- ADS -->
+            <section style="opacity: 0;" id="ads">
+                <div>
+                    <a>
+                        <span id="ad-title">Your project needs CI/CD. -</span>
+                        <span id="ad-subtitle"
+                            >Add the most popular GitHub integration and start
+                            building for free.
+                        </span>
+                    </a>
+                    <span id="ad">Ad </span>
+                </div>
+            </section>
+            <!-- LEFT ASIDE -->
+            <div id="left-aside-wrapper">
+                <aside id="left-aside">
+
+
+
+
+
+
+
+
+
+                    <div id="profile-card">
+                        <div id="background"></div>
+                        <div id="profile-info">
+                            <img
+                                src="assets/<%=user.picturePath%>"
+                                alt="Profile picture"
+                            />
+                            <strong id="profile-name">
+                                <span><%=user.firstName %></span>
+                                <span><%=user.lastName %></span>
+                                </strong
+                            >
+                            <small>
+                                <span><%=user.occupation %></span>
+                            </small>
+                        </div>
+                        <div id="profile-links">
+                            <a href="#">
+                                <span>
+                                    Who's viewed your profile
+                                </span>
+                                <span class="profile-number">
+                                    <span><%=user.viewedProfile %></span>
+                                </span>
+                            </a>
+                            <a href="#">
+                                <span>
+                                    Connections
+                                </span>
+                                <span class="profile-number">
+                                <span><%=20%></span>
+                                </span>
+                            </a>
+                        </div>
+                      
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </aside>
+            </div>
+            <!-- MAIN -->
+            <div id="main-wrapper">
+                <main id="main-section">
+
+
+                    <style>
+                        #button-box{
+                            height: 6vh;
+                        }
+                        #button-box textarea{
+                            resize: none;
+                            width:100%;
+                            border: none;
+                        }
+                        
+                    </style>
+
+
+<form action="posts/newPost" method="post">
+     <div id="share-box">
+                        <div id="button-box">
+                            <input type="text" hidden name="userId" value="<%=user._id%>">
+                            <textarea type="text" placeholder="Create a Post" name="description"></textarea>
+                        </div>
+                        <div id="link-box">
+                            <input type="file" name="picturePath" id="picturePath" placeholder="l">
+                            <button>Post</button>
+                        </div>
+                    </div>
+</form>
+                   
+                    <div id="feed-sort">
+                       
+                    </div>
+
+
+
+
+
+
+
+
+                <% post.forEach(element => { %>
+            
+
+                    <article>
+                        <div id="post-author">
+                            <a href="#">
+                                <div>
+                                    <img
+                                        src="assets/<%=element.userPicturePath %>"
+                                        alt=""
+                                    />
+                                    <div>
+                                        <div>
+                                            <strong id="post-author-name">
+                                                <%= element.firstName %>
+                                                <%= element.lastName%>
+                                                </strong
+                                            >
+                                            
+                                        </div>
+                                
+                                        
+                                        <span><%=element.location %></span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div>
+                                <span class="fas fa-circle"></span>
+                                <span class="fas fa-circle"></span>
+                                <span class="fas fa-circle"></span>
+                            </div>
+                        </div>
+                        <div id="post-data">
+                            <p>
+                                <%= element.description%>
+                            </p>
+                            <% if (element.picturePath.length>0) {%>
+                                <img src="assets/<%=element.picturePath %>" alt=" "/>
+
+                            <% } %>
+                                
+                        </div>
+                        <div id="post-interactions">
+                            <div id="interactions-amount">
+                                
+                           
+
+                                <span
+                                    id="heart-icon"
+                                    class="bi bi-heart"
+                                ></span>
+                                <span id="amount-info">
+                                 <%= element.likes.size %> Likes
+                                </span> 
+                                
+                                <span id="amount-info">
+                                    
+                                    <%= element.comments.length %> Comments
+                                </span>
+                            </div>
+                            <div id="interactions-btns">
+                                <button>
+                                    <span
+                                        class="far fa-thumbs-up fa-flip-horizontal"
+                                    ></span>
+                                    <span>Like</span>
+                                </button>
+                                <button>
+                                    <span
+                                        class="far fa-comment-dots fa-flip-horizontal"
+                                    ></span>
+                                    <span>Comment</span>
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </article>
+
+
+
+                    <% }) %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </main>
+            </div>
+            <!-- RIGHT ASIDE -->
+            <aside id="right-aside">
+                <div id="rec-section">
+                    <div>
+                        <header>
+                            <span>Add to your feed</span>
+                            <span
+                                class="fas fa-info-circle"
+                                onmouseover="showRecommendationsInfo(this)"
+                                onmouseout="showRecommendationsInfo(this)"
+                            >
+                                <div id="float-info">
+                                    <span>
+                                        Follow things that interest you to
+                                        personalize your feed.
+                                    </span>
+                                    <a href="#">Learn more.</a>
+                                </div>
+                                <span>►</span>
+                                <div id="square"></div>
+                            </span>
+                        </header>
+                        <div>
+                            <div>
+                                <img src="/images/mongo.jpeg" alt="" />
+                                <div>
+                                    <strong>MongoDB</strong>
+                                    <small>Company - Computer Software</small>
+                                </div>
+                                <button>
+                                    <span class="fas fa-plus"></span>
+                                    <span>Follow</span>
+                                </button>
+                            </div>
+                            <div>
+                                <img src="/images/react.png" alt="" />
+                                <div>
+                                    <strong>#reactjs</strong>
+                                </div>
+                                <button>
+                                    <span class="fas fa-plus"></span>
+                                    <span>Follow</span>
+                                </button>
+                            </div>
+                            <div>
+                                <img src="/images/example-person.jpeg" alt="" />
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <small
+                                        >Entrepreneur and Marketing
+                                        Specialist</small
+                                    >
+                                </div>
+                                <button>
+                                    <span class="fas fa-plus"></span>
+                                    <span>Follow</span>
+                                </button>
+                            </div>
+                        </div>
+                        <a href="#">View all recommendations</a>
+                    </div>
+                </div>
+                <div id="linkedin-section">
+                    <section>
+                        <small>Ad</small>
+                        <a href="#">
+                            <span
+                                >Maurício, unlock your full potential with
+                                Linkedin Premium</span
+                            >
+                            <div>
+                                <img  src="assets/<%=user.picturePath%>"alt="" />
+                            </div>
+                            <strong>
+                                See who's viewed your profile in the last 90
+                                days
+                            </strong>
+                            <div>
+                                <button>Try for free</button>
+                            </div>
+                        </a>
+                    </section>
+                    <footer>
+                        <ul>
+                            <li>About</li>
+                            <li>Help Center</li>
+                            <li>
+                                Privacy & Terms<span
+                                    class="fas fa-angle-down"
+                                ></span>
+                            </li>
+                            <li>Advertising</li>
+                            <li>
+                                Business Services
+                                <span class="fas fa-angle-down"></span>
+                            </li>
+                            <li>Get the LinkedIn app</li>
+                            <li>More</li>
+                        </ul>
+                        <div>
+                            <strong>Linked<span>in</span></strong>
+                            <span>LinkedIn Corporation © 2019</span>
+                        </div>
+                    </footer>
+                </div>
+            </aside>
+        </div>
+    </body>
+</html>

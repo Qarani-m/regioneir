@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  </head>
+  <body>
+    <form action="auth" method="post">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="email" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="signup">Sign up</a></p>
+    </form>
+  </body>
+</html>
+
+
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+form {
+  margin: 50px auto;
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 28px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+</style>

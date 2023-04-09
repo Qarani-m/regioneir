@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup Page</title>
+  </head>
+  <body>
+    <form action="/auth/register" method="post">
+        <h2>Sign Up</h2>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstName" required>
+      <br>
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastName" required>
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <label for="username">Location:</label>
+      <input type="text" id="username" name="location" required>
+      <br>
+ 
+      <label for="pic">pic:</label>
+      <input type="file" id="pic" name="picturePath" required>
+      <br>
+      <label for="occupation">occupation:</label>
+      <input type="text" id="occupation" name="occupation" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="login">sign in</a></p>
+    </form>
+  </body>
+</html>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+form {
+  margin: 50px auto;
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 28px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+select {
+  color: #999;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+</style>
