@@ -43,11 +43,6 @@ export const login = async (req,res)=>{
         const user = await User.findOne({email:email})
         const post = await Post.find().sort({_id: -1})
         const post1 = await Post.findOne()
-
-
-
-
-
         if(!user) return res.status(400).json({msg:"User does not exist"})
         const isMatch = await bcrypt.compare(password, user.password)
         if(!isMatch) return res.status(400).json({msg:" invalid creds"})
